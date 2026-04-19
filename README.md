@@ -20,6 +20,55 @@ Dự án này bao gồm một loạt các bài tập và nghiên cứu về Họ
 
 ---
 
+# Animal Dataset Classification
+
+Dự án này sử dụng các mô hình học sâu (Deep Learning) để phân loại dữ liệu của các loài động vật từ dataset `animal_dataset.py`. Mô hình bao gồm một **Simple Neural Network** và một **Simple CNN** được triển khai trong `models.py`. Các file `train.py` và `test.py` được sử dụng để huấn luyện và kiểm tra mô hình với dữ liệu động vật.
+
+## Các Thành Phần Chính:
+
+### 1. **Animal Dataset**
+- Dữ liệu động vật được cung cấp trong `animal_dataset.py`. Dataset này bao gồm các hình ảnh của nhiều loài động vật khác nhau.
+- `dataloader_cifar.py` và `dataset_cifar.py` được sử dụng để tải và chuẩn bị dữ liệu cho mô hình.
+
+### 2. **Models**
+- **Simple Neural Network**: Một mô hình mạng nơ-ron đơn giản được định nghĩa trong `models.py`.
+- **Simple CNN**: Mô hình CNN được xây dựng để nhận diện các đặc trưng trong hình ảnh động vật.
+
+### 3. **Training và Testing**
+- **train.py**: Script này thực hiện huấn luyện mô hình với dữ liệu động vật.
+- **test.py**: Script này thực hiện kiểm tra mô hình sau khi huấn luyện và đánh giá độ chính xác của mô hình.
+
+### 4. **Các File Chính**
+- `animal_dataset.py`: Cung cấp dataset động vật cho mô hình.
+- `models.py`: Định nghĩa các mô hình `SimpleNeuralNetwork` và `SimpleCNN`.
+- `train.py`: Huấn luyện mô hình với dữ liệu động vật.
+- `test.py`: Kiểm tra độ chính xác của mô hình.
+- `README.md`: Hướng dẫn sử dụng và thông tin về dự án.
+## Ví Dụ Hình Ảnh
+
+### Loss Graph - Training Process
+
+Dưới đây là ví dụ về biểu đồ loss trong quá trình huấn luyện mà tôi đã thực hiện. Biểu đồ này thể hiện sự thay đổi của loss theo từng bước huấn luyện.
+
+![Loss Graph](./demo_images/img.png)
+
+### Kết Quả Đầu Ra của Mô Hình
+
+Hình ảnh dưới đây cho thấy mô hình sau khi huấn luyện đã phân loại đúng các hình ảnh trong bộ dữ liệu.
+
+## Visual Simulation for Linear Classifier
+
+Đoạn mã này mô phỏng quá trình dự đoán cho các hình ảnh từ bộ dữ liệu **full_numpy_bitmap_apple.npy**, **full_numpy_bitmap_banana.npy**,**full_numpy_bitmap_bicycle.npy**. Chúng ta sử dụng mô hình **SimpleCNN** để dự đoán và hiển thị kết quả cho các hình ảnh đầu vào.
+
+### Các Bước:
+1. Tiền xử lý hình ảnh: Các hình ảnh được tải về từ thư mục **quick raw data**, sau đó được chuyển đổi thành định dạng tensor và chuẩn hóa.
+2. Dự đoán: Mô hình CNN thực hiện dự đoán cho mỗi hình ảnh và trả về kết quả dự đoán.
+3. Hiển thị: Mỗi hình ảnh đầu vào được hiển thị cùng với tên lớp dự đoán.
+
+### Ví Dụ Hình Ảnh:
+Dưới đây là ví dụ về kết quả dự đoán cho các hình ảnh đồ vật:
+
+![Model Output](./demo_images/img_cifar.png)
 ## EX2 - Phân tích sâu sự khác nhau giữa Machine Learning và Deep Learning
 
 Trong bài tập này, chúng ta sẽ phân tích sự khác nhau giữa Học Máy (Machine Learning) và Học Sâu (Deep Learning). Mặc dù cả hai đều là các kỹ thuật học tự động, nhưng Học Sâu có thể tự động học từ dữ liệu mà không cần sự can thiệp của con người trong việc chọn đặc trưng, trong khi Học Máy yêu cầu một số công đoạn chuẩn bị dữ liệu trước.
