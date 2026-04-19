@@ -22,53 +22,97 @@ Dự án này bao gồm một loạt các bài tập và nghiên cứu về Họ
 
 # Animal Dataset Classification
 
-Dự án này sử dụng các mô hình học sâu (Deep Learning) để phân loại dữ liệu của các loài động vật từ dataset `animal_dataset.py`. Mô hình bao gồm một **Simple Neural Network** và một **Simple CNN** được triển khai trong `models.py`. Các file `train.py` và `test.py` được sử dụng để huấn luyện và kiểm tra mô hình với dữ liệu động vật.
+Dự án này là một phần của khóa học học sâu, với mục tiêu giải quyết bài toán phân loại hình ảnh động vật từ dataset `animal_dataset.py`. Các bài toán chính sẽ được giải quyết qua việc huấn luyện và tối ưu hóa các mô hình **Simple Neural Network** và **Simple CNN**, hai mô hình học sâu cơ bản trong việc phân loại hình ảnh.
 
-## Các Thành Phần Chính:
+## Các Bài Toán Giải Quyết trong Khóa Học
+
+### 1. **Phân loại Hình Ảnh Động Vật (Animal Image Classification)**
+   - **Vấn đề**: Dự án này giải quyết bài toán phân loại hình ảnh động vật từ dataset chứa các hình ảnh của nhiều loài động vật khác nhau.
+   - **Mô hình giải quyết**: 
+     - **Simple Neural Network (SimpleNN)**: Mô hình mạng nơ-ron đơn giản, phù hợp cho các bài toán phân loại cơ bản.
+     - **Simple CNN (Convolutional Neural Network)**: Mô hình CNN mạnh mẽ hơn, giúp mô hình học các đặc trưng phức tạp trong hình ảnh động vật, với các lớp **convolution**, **pooling**, và **fully connected**.
+   - **Chức năng**: Dự án giúp phân loại chính xác các loài động vật thông qua việc huấn luyện mô hình trên dataset hình ảnh.
+
+### 2. **Tiền Xử Lý Dữ Liệu (Data Preprocessing)**
+   - **Vấn đề**: Dữ liệu hình ảnh động vật có thể không đồng nhất và cần được tiền xử lý để phù hợp với mô hình học sâu.
+   - **Mô hình giải quyết**: 
+     - **Dataloader**: Sử dụng các công cụ như `dataloader_cifar.py` và `dataset_cifar.py` để chuẩn bị dữ liệu, bao gồm chia dữ liệu thành các tập huấn luyện và kiểm tra, chuẩn hóa ảnh, và chuyển đổi ảnh thành Tensor.
+   - **Chức năng**: Đảm bảo dữ liệu đầu vào sẵn sàng cho quá trình huấn luyện và kiểm tra.
+
+### 3. **Huấn Luyện Mô Hình (Model Training)**
+   - **Vấn đề**: Sau khi chuẩn bị dữ liệu, mô hình cần được huấn luyện để học các đặc trưng từ ảnh động vật.
+   - **Mô hình giải quyết**: 
+     - **Simple Neural Network**: Được huấn luyện qua thuật toán **gradient descent** và hàm mất mát **cross-entropy**.
+     - **Simple CNN**: Mô hình CNN được huấn luyện qua các bước tương tự, nhưng sẽ sử dụng các lớp convolution để học các đặc trưng của hình ảnh động vật.
+   - **Chức năng**: Cải thiện độ chính xác phân loại hình ảnh thông qua việc tối ưu hóa các trọng số của mô hình.
+
+### 4. **Đánh Giá Độ Chính Xác Mô Hình (Model Evaluation)**
+   - **Vấn đề**: Sau khi huấn luyện, mô hình cần được kiểm tra để đánh giá độ chính xác và khả năng phân loại.
+   - **Mô hình giải quyết**: 
+     - **Test Script**: Sử dụng **test.py** để kiểm tra mô hình trên tập kiểm tra và tính toán các chỉ số như **accuracy**, **precision**, và **recall**.
+   - **Chức năng**: Đánh giá mức độ chính xác của mô hình và giúp cải thiện các tham số nếu cần.
+
+---
+
+## Các Thành Phần Chính
 
 ### 1. **Animal Dataset**
-- Dữ liệu động vật được cung cấp trong `animal_dataset.py`. Dataset này bao gồm các hình ảnh của nhiều loài động vật khác nhau.
-- `dataloader_cifar.py` và `dataset_cifar.py` được sử dụng để tải và chuẩn bị dữ liệu cho mô hình.
+   - **Vấn đề**: Cung cấp bộ dữ liệu động vật đa dạng và phong phú để huấn luyện mô hình phân loại.
+   - **Giải pháp**: Dữ liệu động vật được cung cấp trong `animal_dataset.py`. Dataset này bao gồm hình ảnh của nhiều loài động vật khác nhau.
+   - **Các Tệp Liên Quan**: `dataloader_cifar.py` và `dataset_cifar.py` giúp tải và chuẩn bị dữ liệu cho mô hình.
 
-### 2. **Models**
-- **Simple Neural Network**: Một mô hình mạng nơ-ron đơn giản được định nghĩa trong `models.py`.
-- **Simple CNN**: Mô hình CNN được xây dựng để nhận diện các đặc trưng trong hình ảnh động vật.
+### 2. **Mô Hình**
+   - **Simple Neural Network**: Một mô hình mạng nơ-ron đơn giản, thích hợp cho các bài toán phân loại cơ bản.
+   - **Simple CNN**: Mô hình CNN mạnh mẽ, giúp nhận diện các đặc trưng trong hình ảnh động vật.
 
-### 3. **Training và Testing**
-- **train.py**: Script này thực hiện huấn luyện mô hình với dữ liệu động vật.
-- **test.py**: Script này thực hiện kiểm tra mô hình sau khi huấn luyện và đánh giá độ chính xác của mô hình.
+### 3. **Quy Trình Huấn Luyện và Kiểm Tra**
+   - **Huấn luyện**: `train.py` sử dụng các thuật toán học sâu để huấn luyện mô hình với dữ liệu động vật.
+   - **Kiểm tra**: `test.py` thực hiện kiểm tra và đánh giá độ chính xác của mô hình.
 
-### 4. **Các File Chính**
-- `animal_dataset.py`: Cung cấp dataset động vật cho mô hình.
-- `models.py`: Định nghĩa các mô hình `SimpleNeuralNetwork` và `SimpleCNN`.
-- `train.py`: Huấn luyện mô hình với dữ liệu động vật.
-- `test.py`: Kiểm tra độ chính xác của mô hình.
-- `README.md`: Hướng dẫn sử dụng và thông tin về dự án.
+---
+
 ## Ví Dụ Hình Ảnh
 
 ### Loss Graph - Training Process
 
-Dưới đây là ví dụ về biểu đồ loss trong quá trình huấn luyện mà tôi đã thực hiện. Biểu đồ này thể hiện sự thay đổi của loss theo từng bước huấn luyện.
+Dưới đây là ví dụ về biểu đồ **loss** trong quá trình huấn luyện, giúp theo dõi sự thay đổi của **loss** theo từng bước huấn luyện.
 
 ![Loss Graph](./demo_images/img.png)
 
 ### Kết Quả Đầu Ra của Mô Hình
 
-Hình ảnh dưới đây cho thấy mô hình sau khi huấn luyện đã phân loại đúng các hình ảnh trong bộ dữ liệu.
+Hình ảnh dưới đây thể hiện mô hình sau khi huấn luyện đã phân loại đúng các hình ảnh trong bộ dữ liệu.
+
+![Model Output](./demo_images/img_cifar.png)
+
+---
 
 ## Visual Simulation for Linear Classifier
 
-Đoạn mã này mô phỏng quá trình dự đoán cho các hình ảnh từ bộ dữ liệu **full_numpy_bitmap_apple.npy**, **full_numpy_bitmap_banana.npy**,**full_numpy_bitmap_bicycle.npy**. Chúng ta sử dụng mô hình **SimpleCNN** để dự đoán và hiển thị kết quả cho các hình ảnh đầu vào.
+Đoạn mã dưới đây mô phỏng quá trình dự đoán cho các hình ảnh từ bộ dữ liệu **full_numpy_bitmap_apple.npy**, **full_numpy_bitmap_banana.npy**, **full_numpy_bitmap_bicycle.npy**. Mô hình **SimpleCNN** sẽ dự đoán và hiển thị kết quả cho các hình ảnh đầu vào.
 
 ### Các Bước:
-1. Tiền xử lý hình ảnh: Các hình ảnh được tải về từ thư mục **quick raw data**, sau đó được chuyển đổi thành định dạng tensor và chuẩn hóa.
-2. Dự đoán: Mô hình CNN thực hiện dự đoán cho mỗi hình ảnh và trả về kết quả dự đoán.
-3. Hiển thị: Mỗi hình ảnh đầu vào được hiển thị cùng với tên lớp dự đoán.
+1. **Tiền xử lý hình ảnh**: Hình ảnh được tải về từ thư mục **quick raw data**, chuyển thành tensor và chuẩn hóa.
+2. **Dự đoán**: Mô hình **SimpleCNN** dự đoán cho mỗi hình ảnh và trả về kết quả.
+3. **Hiển thị kết quả**: Mỗi hình ảnh đầu vào được hiển thị cùng với tên lớp dự đoán.
 
 ### Ví Dụ Hình Ảnh:
+
 Dưới đây là ví dụ về kết quả dự đoán cho các hình ảnh đồ vật:
 
 ![Model Output](./demo_images/img_cifar.png)
+
+---
+
+### Các Ghi Chú
+
+- **Loss Graph**: Biểu đồ **loss** theo dõi quá trình huấn luyện mô hình. Nếu **loss** giảm dần, mô hình đang học tốt. Nếu không, cần điều chỉnh tham số như **learning rate**.
+- **Model Output**: Các hình ảnh này thể hiện độ chính xác của mô hình trên bộ dữ liệu kiểm tra.
+
+---
+
+Hy vọng rằng bản điều chỉnh này sẽ giúp bạn hiểu rõ hơn về các bài toán mà khóa học giải quyết. Nếu bạn muốn thêm bất kỳ chi tiết nào hoặc có yêu cầu chỉnh sửa, đừng ngần ngại yêu cầu tôi!
+
 ## EX2 - Phân tích sâu sự khác nhau giữa Machine Learning và Deep Learning
 
 Trong bài tập này, chúng ta sẽ phân tích sự khác nhau giữa Học Máy (Machine Learning) và Học Sâu (Deep Learning). Mặc dù cả hai đều là các kỹ thuật học tự động, nhưng Học Sâu có thể tự động học từ dữ liệu mà không cần sự can thiệp của con người trong việc chọn đặc trưng, trong khi Học Máy yêu cầu một số công đoạn chuẩn bị dữ liệu trước.
