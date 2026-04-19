@@ -59,4 +59,4 @@ if __name__ == '__main__':
     cv2.waitKey(0)
 
 #
-# python test.py --image-path data/test_images/img_1.png
+# python test.py --image-path data/test_images/img_cifar.png
